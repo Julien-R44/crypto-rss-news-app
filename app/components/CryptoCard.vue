@@ -12,18 +12,33 @@
     </FlexboxLayout>
 
     <FlexboxLayout class="crypto-card-subhead">
-      <Label
-        :class="stylePercentChange(crypto.percentChange1h)"
-        :text="`1h: ${crypto.percentChange1h} €`"
-      ></Label>
-      <Label
-        :class="stylePercentChange(crypto.percentChange24h)"
-        :text="`24h: ${crypto.percentChange24h} €`"
-      ></Label>
-      <Label
-        :class="stylePercentChange(crypto.percentChange7d)"
-        :text="`7d: ${crypto.percentChange7d} €`"
-      ></Label>
+      <Label>
+        <FormattedString>
+          <Span text="1h: "></Span>
+          <Span
+            :class="stylePercentChange(crypto.percentChange1h)"
+            :text="`${crypto.percentChange1h} €`"
+          ></Span>
+        </FormattedString>
+      </Label>
+      <Label>
+        <FormattedString>
+          <Span text="24h: "></Span>
+          <Span
+            :class="stylePercentChange(crypto.percentChange24h)"
+            :text="`${crypto.percentChange24h} €`"
+          ></Span>
+        </FormattedString>
+      </Label>
+      <Label>
+        <FormattedString>
+          <Span text="7d: "></Span>
+          <Span
+            :class="stylePercentChange(crypto.percentChange7d)"
+            :text="`${crypto.percentChange7d} €`"
+          ></Span>
+        </FormattedString>
+      </Label>
     </FlexboxLayout>
   </StackLayout>
 </template>
@@ -60,7 +75,6 @@ export default class App extends Vue {
   padding: 40px 50px;
   .crypto-card-headline {
     justify-content: space-between;
-    padding-top: 50px;
     padding-bottom: 50px;
     &__symbol {
       font-weight: 400;
