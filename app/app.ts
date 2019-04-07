@@ -1,14 +1,10 @@
-import Vue from "nativescript-vue";
-// @ts-ignore
-import Home from "./components/Home.vue";
+import Vue from 'nativescript-vue'
+import App from './components/App.vue'
+import store from './store'
+
+Vue.config.silent = false
 
 new Vue({
-  template: `
-        <Frame>
-            <Home />
-        </Frame>`,
-
-  components: {
-    Home
-  }
-}).$start();
+  render: h => h('frame', [h(App)]),
+  store
+}).$start()
