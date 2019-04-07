@@ -1,15 +1,14 @@
 import Vue from "nativescript-vue";
-
-import Home from "./components/Home";
+// @ts-ignore
+import Home from "./components/Home.vue";
 
 new Vue({
-
-    template: `
+  template: `
         <Frame>
             <Home />
         </Frame>`,
 
-    components: {
-        Home
-    }
+  components: {
+    Home
+  }
 }).$start();
