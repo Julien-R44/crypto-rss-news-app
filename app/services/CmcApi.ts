@@ -18,7 +18,7 @@ const $axios = axios.create({
 export abstract class CmcApi {
   public static async fetchCryptoCurrencies(): Promise<Array<CryptoCurrency>> {
     const { data } = await $axios.get(
-      'v1/cryptocurrency/listings/latest?limit=15'
+      'v1/cryptocurrency/listings/latest?limit=20&convert=EUR'
     )
 
     const cryptosIds: Array<Number> = map(data.data, 'id')
