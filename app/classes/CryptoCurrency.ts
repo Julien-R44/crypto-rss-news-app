@@ -1,4 +1,4 @@
-export class CryptoCurrency {
+export default class CryptoCurrency {
   name: string
   symbol: string
   price: number

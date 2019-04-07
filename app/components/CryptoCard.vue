@@ -46,7 +46,7 @@
 <script lang="ts">
 import Vue from 'nativescript-vue'
 import { Component, Prop } from 'vue-property-decorator'
-import { CryptoCurrency } from '@/classes/CryptoCurrency'
+import CryptoCurrency from '@/classes/CryptoCurrency'
 
 @Component
 export default class App extends Vue {

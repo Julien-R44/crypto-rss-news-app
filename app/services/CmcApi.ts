@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CryptoCurrency } from '~/classes/CryptoCurrency'
+import CryptoCurrency from '~/classes/CryptoCurrency'
 import { map, find } from 'lodash'
 
 const debug = process.env.NODE_ENV !== 'production'

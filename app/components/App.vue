@@ -4,11 +4,19 @@
       <Label class="action-bar-title" text="Crypto-App"></Label>
     </ActionBar>
 
-    <ScrollView>
-      <StackLayout>
-        <CryptoCard v-for="(item, idx) in items" :key="idx" :crypto="item"></CryptoCard>
-      </StackLayout>
-    </ScrollView>
+    <TabView androidTabsPosition="bottom">
+      <TabViewItem title="Market">
+        <ScrollView>
+          <StackLayout>
+            <CryptoCard v-for="(item, idx) in items" :key="idx" :crypto="item"></CryptoCard>
+          </StackLayout>
+        </ScrollView>
+      </TabViewItem>
+
+      <TabViewItem title="News">
+        <CryptoNews></CryptoNews>
+      </TabViewItem>
+    </TabView>
   </Page>
 </template>
 
@@ -16,10 +24,12 @@
 import Vue from 'nativescript-vue'
 import { Component } from 'vue-property-decorator'
 import CryptoCard from '@/components/CryptoCard.vue'
+import CryptoNews from '@/components/CryptoNews.vue'
 
 @Component({
   components: {
-    CryptoCard
+    CryptoCard,
+    CryptoNews
   }
 })
 export default class App extends Vue {
@@ -32,18 +42,3 @@ export default class App extends Vue {
   }
 }
 </script>
-
-<style scoped lang="scss">
-// Start custom common variables
-@import '../app-variables';
-// End custom common variables
-
-// Custom styles
-.fa {
-  color: $accent-dark;
-}
-
-.info {
-  font-size: 20;
-}
-</style>
