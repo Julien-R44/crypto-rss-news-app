@@ -3,7 +3,8 @@
     "baseUrl": "./",
     "paths": {
       "*": ["./node_modules/tns-core-modules/*", "./node_modules/*"],
-      "~/*": ["app/*"]
+      "~/*": ["app/*"],
+      "@/*": ["app/*"]
     }
   },
   "include": ["app/**/*"]
