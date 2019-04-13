@@ -1,5 +1,5 @@
 import Vue from 'nativescript-vue'
-import App from './components/App.vue'
+import App from './pages/App.vue'
 import store from './store'
 
 Vue.config.silent = false
