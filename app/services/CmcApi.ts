@@ -28,8 +28,8 @@ export abstract class CmcApi {
 
     let cryptos: Array<CryptoCurrency> = []
     for (let crypto of data.data) {
-      crypto.logo = find(metaData.data, d => d.id === crypto.id).logo
-      cryptos.push(new CryptoCurrency(crypto))
+      const metaDataOfCrypto = find(metaData.data, d => d.id === crypto.id)
+      cryptos.push(new CryptoCurrency({ ...crypto, ...metaDataOfCrypto }))
     }
 
     return cryptos

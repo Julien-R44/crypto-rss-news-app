@@ -1,5 +1,5 @@
 <template>
-  <StackLayout class="crypto-card">
+  <StackLayout @tap="onCardtap" class="crypto-card">
     <FlexboxLayout class="crypto-card-headline">
       <StackLayout orientation="horizontal">
         <Image class="crypto-card-headline__logo" :src="crypto.logo" stretch="none"/>
@@ -8,7 +8,7 @@
         <Label class="crypto-card-headline__name" :text="crypto.name"></Label>
       </StackLayout>
 
-      <Label>{{ price }}</Label>
+      <Label>{{ crypto.roundedPrice }}</Label>
     </FlexboxLayout>
 
     <FlexboxLayout class="crypto-card-subhead">
@@ -47,6 +47,7 @@
 import Vue from 'nativescript-vue'
 import { Component, Prop } from 'vue-property-decorator'
 import CryptoCurrency from '@/classes/CryptoCurrency'
+import CryptoDetails from '@/components/CryptoDetails.vue'
 
 @Component
 export default class App extends Vue {
@@ -56,9 +57,12 @@ export default class App extends Vue {
     return value > 0 ? 'green' : 'red'
   }
 
-  get price() {
-    const fixedPrice = +this.crypto.price.toFixed(2)
-    return `${fixedPrice} €`
+  onCardtap() {
+    this.$navigateTo(CryptoDetails, {
+      props: {
+        crypto: this.crypto
+      }
+    })
   }
 }
 </script>
