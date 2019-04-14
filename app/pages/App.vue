@@ -4,8 +4,13 @@
       <Label class="action-bar-title" text="Crypto-App"></Label>
     </ActionBar>
 
-    <TabView androidTabsPosition="bottom">
-      <TabViewItem title="Market">
+    <TabView
+      tabTextFontSize="14"
+      selectedTabTextColor="white"
+      tabBackgroundColor="red"
+      androidTabsPosition="bottom"
+    >
+      <TabViewItem class="fa" :title="String.fromCharCode(0xf201) + '  Market'">
         <ScrollView>
           <StackLayout>
             <CryptoCard v-for="(item, idx) in items" :key="idx" :crypto="item"></CryptoCard>
@@ -13,7 +18,7 @@
         </ScrollView>
       </TabViewItem>
 
-      <TabViewItem title="News">
+      <TabViewItem class="fa" :title="String.fromCharCode(0xf143) + '  News'">
         <CryptoNews></CryptoNews>
       </TabViewItem>
     </TabView>
